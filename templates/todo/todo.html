@@ -6,9 +6,26 @@
     <input name="label" placeholder="Enter todo label" />
     <button type="submit">Add</button>
   </form>
+  <script>
+    function deleteItem (event) {
+      const itemId = event.target.dataset.id;
+      fetch('/todo', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: itemId,
+      }).then(() => {
+        window.location.href = '/';
+      }).catch(console.error);
+    }
+  </script>
   <ul>
     % for t in todo:
-      <li>${t['label']}</li>
+      <li>
+        ${t['label']}
+        <button class="delete-item" data-id=${t['id']} onclick="deleteItem(event)">X</button>
+      </li>
     % endfor
   </ul>
 </div>
