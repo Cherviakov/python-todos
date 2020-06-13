@@ -1,0 +1,14 @@
+<div class="todo-list">
+  <%!
+     from flask import url_for
+  %>
+  <form action="${url_for('todo')}" method="post">
+    <input name="label" placeholder="Enter todo label" />
+    <button type="submit">Add</button>
+  </form>
+  <ul>
+    % for t in todo:
+      <li>${t['label']}</li>
+    % endfor
+  </ul>
+</div>

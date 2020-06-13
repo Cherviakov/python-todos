@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Python todos</title>
+    <%!
+      from flask import url_for
+    %> 
+    <link rel="stylesheet" href="${url_for('static', filename='style.css')}">
+  </head>
+  <body>
+    <%include file="topbar.html"></%include>
+    <%include file="todo/todo.html"></%include>
+    <%include file="bottom.html"></%include>
+  </body>
+</html>
