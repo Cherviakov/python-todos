@@ -2,6 +2,7 @@ from flask import Flask, request, redirect, url_for
 from mako.lookup import TemplateLookup
 from sqlalchemy.sql import insert, update, delete
 import simplejson as json
+
 import db
 
 app = Flask(__name__)

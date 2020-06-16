@@ -1,5 +1,6 @@
 import os
 from string import Template
+
 from sqlalchemy import Column, DateTime, String, Integer, func, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
