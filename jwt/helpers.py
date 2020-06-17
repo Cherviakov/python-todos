@@ -1,7 +1,18 @@
+from json import dumps, loads
+from urllib.parse import quote, unquote
 from base64 import b64encode, b64decode
 
-def UTF8ToBase64 (string):
-  return b64encode(string.encode("UTF-8")).decode("UTF-8")
+def encodingToBase64 (string, encoding = "UTF-8"):
+  return b64encode(string.encode(encoding, 'backslashreplace')).decode(encoding, 'backslashreplace')
 
-def base64ToUTF8 (string):
-  return b64decode(string.encode("UTF-8")).decode("UTF-8")
+def base64ToEncoding (string, encoding = "UTF-8"):
+  return b64decode(string.encode(encoding, 'backslashreplace')).decode(encoding, 'backslashreplace')
+
+def constructSigningInput (headers, message):
+  return base64ToEncoding(headers, 'ascii') + "." + message
+
+def serialize (json):
+  return encodingToBase64(quote(dumps(json)))
+
+def deserialize (string):
+  return loads(unquote(base64ToEncoding(string)))
