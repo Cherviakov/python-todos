@@ -11,6 +11,7 @@ PostgreSQL
 python3 -c venv venv  
 source venv/bin/activate  
 pip install  
+python jwt/generate_keys.py
 
 ### Development
 

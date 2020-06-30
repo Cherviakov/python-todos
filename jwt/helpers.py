@@ -12,7 +12,7 @@ def constructSigningInput (headers, message):
   return base64ToEncoding(headers, 'ascii') + "." + message
 
 def serialize (json):
-  return encodingToBase64(quote(dumps(json)))
+  return encodingToBase64(quote(dumps(json, indent=2, default=str)))
 
 def deserialize (string):
   return loads(unquote(base64ToEncoding(string)))

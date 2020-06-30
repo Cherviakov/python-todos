@@ -37,7 +37,7 @@ class TestHelper (unittest.TestCase):
 
   def testSerialize (self):
     json = { "a": "te st", "b": 2, "c": True }
-    result = "JTdCJTIyYSUyMiUzQSUyMCUyMnRlJTIwc3QlMjIlMkMlMjAlMjJiJTIyJTNBJTIwMiUyQyUyMCUyMmMlMjIlM0ElMjB0cnVlJTdE"
+    result = "JTdCJTBBJTIwJTIwJTIyYSUyMiUzQSUyMCUyMnRlJTIwc3QlMjIlMkMlMEElMjAlMjAlMjJiJTIyJTNBJTIwMiUyQyUwQSUyMCUyMCUyMmMlMjIlM0ElMjB0cnVlJTBBJTdE"
     self.assertEqual(serialize(json), result)
 
   def testDeserialize (self):
